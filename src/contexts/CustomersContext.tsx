@@ -1,5 +1,6 @@
 'use client'
 
+import { FormValues } from '@/components/ModalRegisterCustomer'
 import api from '@/lib/axios'
 import { createContext, useState, type ReactNode } from 'react'
 
@@ -14,7 +15,7 @@ interface CustomerProps {
 interface ICustomersContextData {
   getCustomerLocalStorage: () => void
   customer: CustomerProps | undefined
-  createCustomer: (data: CustomerProps) => Promise<void>
+  createCustomer: (data: FormValues) => Promise<void>
 }
 
 const CustomersContext = createContext({} as ICustomersContextData)
@@ -22,7 +23,7 @@ const CustomersContext = createContext({} as ICustomersContextData)
 const CustomersProvider = ({ children }: { children: ReactNode }) => {
   const [customer, setCustomer] = useState<CustomerProps>()
 
-  async function createCustomer(data: CustomerProps) {
+  async function createCustomer(data: FormValues) {
     try {
       const response = await api.post('/customer', data)
 

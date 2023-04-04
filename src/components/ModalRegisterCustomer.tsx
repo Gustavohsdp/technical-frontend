@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { Button } from './Button'
 
-type FormValues = {
+export type FormValues = {
   name: string
   email: string
   phone: string

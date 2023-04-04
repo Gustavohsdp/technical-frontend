@@ -35,7 +35,7 @@ const HomePage = () => {
           <div className="mt-56">
             <Loading />
           </div>
-        ) : filteredProducts.length > 0 ? (
+        ) : filteredProducts && filteredProducts.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-6">
             {filteredProducts.map((product) => (
               <Product key={product.id} product={product} />

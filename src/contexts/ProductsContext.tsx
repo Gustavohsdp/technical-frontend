@@ -27,14 +27,14 @@ interface IProductsContextData {
   cart: ProductProps[]
   products: ProductProps[] | undefined
   product: ProductProps | undefined
-  handleFilteredProducts: (name: string) => ProductProps[]
-  filteredProducts: ProductProps[]
-  orderByHighestPrice: () => ProductProps[]
-  sortByLowestPrice: () => ProductProps[]
-  sortByAscendingName: () => ProductProps[]
-  sortByDescendingName: () => ProductProps[]
-  filterByCategory: (categoryId: string) => ProductProps[]
-  getProductBySku: (sku: string) => Promise<ProductProps>
+  handleFilteredProducts: (name: string) => void
+  filteredProducts: ProductProps[] | undefined
+  orderByHighestPrice: () => void
+  sortByLowestPrice: () => void
+  sortByAscendingName: () => void
+  sortByDescendingName: () => void
+  filterByCategory: (categoryId: string) => void
+  getProductBySku: (sku: string) => void
   removeAllCart: () => void
   categories: CategoriesProps[]
   getCategories: () => Promise<void>
@@ -75,7 +75,7 @@ const ProductsProvider = ({ children }: { children: ReactNode }) => {
   }
 
   function sortByAscendingName() {
-    const sortedProducts = [...filteredProducts].sort((a, b) => {
+    const sortedProducts = [...filteredProducts!].sort((a, b) => {
       const nameA = a.name.toLowerCase()
       const nameB = b.name.toLowerCase()
 
@@ -91,7 +91,7 @@ const ProductsProvider = ({ children }: { children: ReactNode }) => {
   }
 
   function sortByDescendingName() {
-    const sortedProducts = [...filteredProducts].sort((a, b) => {
+    const sortedProducts = [...filteredProducts!].sort((a, b) => {
       const nameA = a.name.toLowerCase()
       const nameB = b.name.toLowerCase()
 
@@ -107,15 +107,15 @@ const ProductsProvider = ({ children }: { children: ReactNode }) => {
   }
 
   function filterByCategory(categoryId: string) {
-    if (filteredProducts.length === 0) {
+    if (filteredProducts && filteredProducts.length === 0) {
       setFilteredProducts(products)
     }
 
-    const productsByCategory = products.filter((product) => {
+    const productsByCategory = products?.filter((product) => {
       return product.categoryId === categoryId
     })
 
-    if (productsByCategory.length === 0) {
+    if (productsByCategory && productsByCategory.length === 0) {
       setFilteredProducts([])
     } else {
       setFilteredProducts(productsByCategory)

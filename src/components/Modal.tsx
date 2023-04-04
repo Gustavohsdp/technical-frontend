@@ -1,5 +1,6 @@
 'use client'
 
+import { ProductProps } from '@/contexts/ProductsContext'
 import { useCustomers } from '@/hooks/useCustomers'
 import { useProducts } from '@/hooks/useProducts'
 import api from '@/lib/axios'
@@ -37,7 +38,7 @@ export function Dialog(props: DialogProps) {
     const newOrder = {
       customerId: customer.id,
       totalValue: totalValueCart.toFixed(2),
-      productIds: cart.map((product) => product.id),
+      productIds: cart.map((product: ProductProps) => product.id),
     }
 
     try {
