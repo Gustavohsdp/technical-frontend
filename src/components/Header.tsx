@@ -27,7 +27,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 px-4 sm:px-8 md:px-12 lg:px-20 py-4 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between w-full h-20 backdrop-blur-2xl">
       <div
-        className="cursor-pointer mb-4 sm:mb-0 sm:w-full"
+        className="cursor-pointer mb-4 sm:mb-0 sm:w-full hidden md:block"
         onClick={handleHomePage}
       >
         <span className="font-inter font-bold text-2xl">MyPharma </span>
