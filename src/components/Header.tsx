@@ -34,17 +34,19 @@ export function Header() {
         <span className="font-inter font-light text-2xl">Shop</span>
       </div>
 
-      <div className="flex items-center justify-center sm:w-auto">
+      <div className="flex items-center justify-end sm:w-auto ">
         <Dialog />
 
         {customer ? (
-          <div className="flex flex-row ml-10 items-center justify-between">
+          <div className="w-full flex flex-row ml-10 items-center justify-between">
             <div>
               <Button onClick={handleMyOrders}>Pedidos</Button>
             </div>
 
-            <div className="flex-col justify-between items-center sm:flex-row sm:items-center sm:ml-4 hidden md:block">
-              <span className="font-bold">{customer.name}</span>
+            <div className=" w-full flex-col justify-between items-center sm:flex-row sm:items-center sm:ml-4 hidden md:block">
+              <span className="font-bold flex-nowrap">
+                {customer.name.split(' ')[0]}
+              </span>
               <p className="text-sm">{customer.email}</p>
             </div>
           </div>

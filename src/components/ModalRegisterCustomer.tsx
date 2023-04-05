@@ -64,7 +64,9 @@ export default function ModalRegisterCustomer() {
       <DialogPrimitive.Overlay className="fixed inset-0 z-20 bg-black/60 backdrop-blur-3xl" />
 
       <DialogPrimitive.Trigger asChild>
-        <Button>Cadastrar</Button>
+        <div className="ml-10">
+          <Button>Cadastrar</Button>
+        </div>
       </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal forceMount>
         <Transition.Root show={isOpen}>
