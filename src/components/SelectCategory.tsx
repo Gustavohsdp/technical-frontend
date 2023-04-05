@@ -9,7 +9,8 @@ export function SelectCategory() {
     undefined,
   )
 
-  const { filterByCategory, getCategories, categories } = useProducts()
+  const { filterByCategory, getCategories, categories, getProducts } =
+    useProducts()
 
   function handleCategoryChange(event: ChangeEvent<HTMLSelectElement>): void {
     setSelectedCategory(event.target.value)
@@ -19,6 +20,10 @@ export function SelectCategory() {
     if (selectedCategory !== undefined) {
       filterByCategory(selectedCategory)
     }
+
+    if (selectedCategory === 'all') {
+      getProducts()
+    }
   }, [selectedCategory])
 
   useEffect(() => {
@@ -26,20 +31,22 @@ export function SelectCategory() {
   }, [])
 
   return (
-    <div className="">
+    <div className="w-full">
       <select
         id="category"
         name="category"
         value={selectedCategory}
         onChange={handleCategoryChange}
-        className=" w-full text-base border-gray-300 focus:outline-none max-w-md flex items-center gap-3 text-md text-zinc-400 bg-white/5 border border-white/10 px-3 h-14 rounded-md"
+        className=" w-full text-base border-gray-300 focus:outline-none  min-w-[288px] max-w-md flex items-center gap-3 text-md text-zinc-400 bg-white/5 border border-white/10 px-3 h-14 rounded-md"
       >
-        <option value="">Selecione uma categoria</option>
-        {categories.map((category: { id: string; name: string }) => (
-          <option key={category.id} value={category.id}>
-            {category.name}
-          </option>
-        ))}
+        <option disabled>Selecione uma categoria</option>
+        {categories
+          .concat([{ id: 'all', name: 'Todas' }])
+          .map((category: { id: string; name: string }) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
       </select>
     </div>
   )

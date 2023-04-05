@@ -12,6 +12,7 @@ export interface ProductProps {
   unitaryValue: string
   categoryId: string
   active: boolean
+  imageUrl: string | null
   createdAt: string
   updatedAt: string
 }

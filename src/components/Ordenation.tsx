@@ -62,15 +62,15 @@ export function Ordenation() {
   }, [selectedOrdenation])
 
   return (
-    <div className="">
+    <div className="w-full">
       <select
         id="ordenation"
         name="ordenation"
         value={selectedOrdenation}
         onChange={handleOrdenationChange}
-        className=" text-base border-gray-300 focus:outline-none  w-64 max-w-md flex items-center gap-3 text-md text-zinc-400 bg-white/5 border border-white/10 px-3 h-14 rounded-md"
+        className=" text-base border-gray-300 focus:outline-none w-full min-w-[288px] max-w-md flex items-center gap-3 text-md text-zinc-400 bg-white/5 border border-white/10 px-3 h-14 rounded-md"
       >
-        <option value="">Selecione uma ordenação</option>
+        <option disabled>Selecione uma ordenação</option>
         {ordernation.map((ordenation: ordernationProps) => (
           <option key={ordenation.id} value={ordenation.id}>
             {ordenation.option}

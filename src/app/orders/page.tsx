@@ -25,7 +25,7 @@ export default function Orders() {
       <Header />
 
       {orders && orders?.length > 0 ? (
-        <div className="grid grid-cols-3 gap-5 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-6">
           {orders?.map((order) => (
             <MyOrders key={order.id} order={order} />
           ))}

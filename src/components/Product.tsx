@@ -22,14 +22,17 @@ export function Product({ product }: ProductDataProps) {
   const productAddedToCart = cart.find((item) => item.id === product.id)
 
   return (
-    <div className="h-80 w-full bg-gray-800 rounded-lg px-4 py-4 flex justify-center items-center flex-col ">
-      <div className="cursor-pointer" onClick={handleNavigationProductDetails}>
-        <div>
+    <div className="h-80 w-full bg-gray-800 rounded-lg px-4 py-4 flex flex-col justify-between items-center">
+      <div
+        className="cursor-pointer h-72 "
+        onClick={handleNavigationProductDetails}
+      >
+        <div className="m-auto flex justify-center items-center h-32 w-32">
           <Image
             alt={product.name}
-            src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/572/355/products/juflfb8-4686-008_zoom1-removebg-preview1-117cddabbce0dace0c16801931826518-480-0.webp"
-            height="160"
-            width="160"
+            src={product.imageUrl ?? ''}
+            height="132"
+            width="132"
             className="object-contain"
             quality={100}
           />
@@ -42,8 +45,7 @@ export function Product({ product }: ProductDataProps) {
           </span>
         </div>
       </div>
-
-      <div className="w-full mt-4">
+      <div className="w-full text-center">
         <Button
           onClick={() => {
             productAddedToCart ? removeCart(product) : addCart(product)

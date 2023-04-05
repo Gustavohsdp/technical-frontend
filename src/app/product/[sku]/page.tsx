@@ -35,10 +35,10 @@ export default function ProductDetails(props: ProductDetailsProps) {
 
       {product ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="mb-4 sm:mb-0 xs:mt-96">
+          <div className="mb-4 sm:mb-0 xs:mt-96 items-center justify-center flex">
             <Image
-              alt="Camiseta"
-              src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/572/355/products/juflfb8-4686-008_zoom1-removebg-preview1-117cddabbce0dace0c16801931826518-480-0.webp"
+              alt={product.name}
+              src={product.imageUrl ?? ''}
               height="600"
               width="600"
               quality={100}

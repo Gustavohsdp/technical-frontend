@@ -20,12 +20,12 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen ">
       <Header />
-      <main className="px-4 sm:px-8 md:px-16 lg:px-24 w-full mx-auto pt-24">
+      <main className="px-4 sm:px-8 md:px-16 lg:px-24 w-screen mx-auto pt-24">
         <div className="flex flex-row flex-wrap items-center justify-between">
           <Search />
-          <div className="gap-3 flex flex-row flex-wrap">
+          <div className="gap-3 flex flex-row flex-wrap mt-3 sm:mt-0 md:flex-nowrap">
             <SelectCategory />
             <Ordenation />
           </div>
@@ -36,7 +36,7 @@ const HomePage = () => {
             <Loading />
           </div>
         ) : filteredProducts && filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-6">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-6">
             {filteredProducts.map((product) => (
               <Product key={product.id} product={product} />
             ))}
