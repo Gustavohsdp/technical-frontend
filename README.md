@@ -3,6 +3,7 @@
 <p align="center">
   <img width="100%" alt="products" title="products" src=".github/products.png" />
   <img width="100%" alt="cart" title="cart" src=".github/cart.png" />
+  <img width="100%" alt="cart" title="details_product" src=".github/details_product.png" />
 </p>
 
 ## 🔖 Project
